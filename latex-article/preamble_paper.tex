@@ -1,0 +1,230 @@
+
+\usepackage[english]{babel}
+\usepackage{a4wide}
+\usepackage{csquotes}
+\usepackage{float, afterpage, rotating, graphicx}
+\usepackage{epstopdf}
+\usepackage{longtable, booktabs, tabularx}
+\usepackage{fancyvrb, moreverb, relsize}
+\usepackage{eurosym, calc, chngcntr}
+\usepackage{mathtools, amssymb, amsfonts, amsthm, bm,amsmath}
+\usepackage[toc,page]{appendix}
+\usepackage{mdwlist}
+\usepackage{xfrac}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{ragged2e} % to reverse centering by \justify
+\usepackage[margin=1.1in,footskip=0.7in]{geometry}
+\usepackage[ruled]{algorithm2e}
+\usepackage{tikz}
+
+% to merge rows in the table into one. USAGE:
+% age, industry,     &   \multirow{ 2}{*}{Yes}   & \multirow{ 2}{*}{Yes} \
+% year fixed effects \
+\usepackage{multirow} 
+
+
+
+% \usepackage{endfloat} % Enable to move tables / figures to the end. Useful for some submissions.
+
+\usepackage{subfig}
+
+\usepackage[
+sortcites=true,
+sorting=ynt,
+natbib=true,
+bibencoding=inputenc,
+bibstyle=authoryear,
+citestyle=authoryear-comp,
+% style=chicago-authordate,
+maxcitenames=2,
+maxbibnames=10,
+useprefix=false,
+backend=biber,
+doi=false, isbn=false, url=false, eprint=false,
+uniquelist=false
+]{biblatex}
+
+% \usepackage[authordate,backend=biber]{biblatex-chicago}
+
+\AtBeginDocument{\toggletrue{blx@useprefix}}
+\AtBeginBibliography{\togglefalse{blx@useprefix}}
+\setlength{\bibitemsep}{1.5ex}
+
+\definecolor{linkCol}{HTML}{454b4d}
+
+\usepackage[unicode=true,hidelinks]{hyperref}
+\hypersetup{
+colorlinks=false,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+runcolor=black,
+urlcolor=black
+}
+
+%%%%%%%%%%%% FONT %%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % not needed when xelatex
+\usepackage[T1]{fontenc}  % not needed when xelatex
+%\usepackage[sc]{mathpazo} %  not needed when xelatex
+%\usepackage{newpxmath} % not needed when xelatex
+%\usepackage[scaled=.98,sups,osf]{XCharter}% osf in text, lining figures in math
+%\usepackage[scaled=1.04,varqu,varl]{inconsolata}% inconsolata typewriter
+%\usepackage[type1]{cabin}% sans serif
+%\usepackage[uprightscript,charter,vvarbb,scaled=1.05]{newtxmath}
+\usepackage{lato}
+\linespread{1.5}
+
+% this below is only for xelatex
+%\usepackage{microtype} % clearer font
+%\usepackage{unicode-math}
+%\setmathfont{Asana Math}
+%\setmainfont{Palatino Linotype}
+
+%\usepackage{fontspec}
+%\usepackage{mathspec}
+%\setmainfont[
+%             UprightFont={*-Regular},
+%             BoldFont={*-SemiBold},
+%             ItalicFont={*-RegularItalic},
+%             BoldItalicFont={*-SemiBoldItalic},
+%             Scale=1.0,
+%            Numbers=Lining
+%            ]{Metropolis}
+% \setmonofont[Color={010101},Scale=0.88]{JetBrainsMono}
+
+% \setmathfont(Digits,Latin,Greek)[Scale=MatchLowercase]{STIXTwoMath-Regular}
+% \setmathfont(Digits,Latin,Greek)[Scale=MatchUppercase,Numbers={Lining,Proportional}]{latinmodern-math.otf}
+% \setmathfont(Digits,Latin,Greek)[Scale=MatchUppercase,Numbers={Lining,Proportional}]{Metropolis-LightItalic}
+
+% this is for pdftex
+% \usepackage{fourier}
+
+\definecolor{titlecol}{HTML}{374C8C}
+\definecolor{figcol}{HTML}{3067a6}
+\definecolor{grey}{HTML}{393b39}
+
+\usepackage{sectsty} % Allows customization of titles
+\sectionfont{\Large \color{titlecol}} % Color section titles
+\subsectionfont{\large \color{titlecol}} % Color section titles
+\subsubsectionfont{\normalsize \color{titlecol}} % Color section titles
+
+
+% set color of figure titles
+\usepackage[labelfont={color=figcol,bf}]{caption}
+
+
+% define figure notes
+\newcommand\fnote[1]{\captionsetup{font={footnotesize}}\caption*{\textcolor{grey}{\emph{Notes}: #1}}}
+
+\newcommand{\linkText}[1]{{\textcolor{linkCol}{#1}}}
+\widowpenalty=10000
+\clubpenalty=10000
+
+\setlength{\parskip}{0ex}
+% \setlength{\parindent}{0ex}
+
+\theoremstyle{plain}
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+% \theoremstyle{remark}
+
+%declaration of new variables
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdinline}[2]{ \partial #1/\partial #2}
+\newcommand{\td}[2]{\frac{\ud #1}{\ud #2}}
+
+\renewcommand{\iff}{\ensuremath{\Leftrightarrow}}
+\newcommand{\tends}[1][{}]{\overset{#1}{\to}}
+\newcommand{\lub}{\ensuremath{\,\vee\,}}
+\newcommand{\oraz}{\ensuremath{\,\wedge\,}}
+\newcommand{\then}{\ensuremath{\,\Rightarrow \,}}
+\newcommand{\neht}{\ensuremath{\Leftarrow}}
+
+\newcommand{\tinf}{_{t=0}^{\infty}}
+
+\newcommand{\R}{\mathbb{R}} %Real numbers
+\newcommand{\Se}{\mathcal{S}} % Borel set
+\newcommand{\margc}{{MC}} % marginal cost
+
+
+\newcommand{\opts}{\bar{k}(z)} % optimal size
+
+\newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
+\newcommand{\bp}[1]{\left( #1 \right)} 
+\newcommand{\bs}[1]{\left[ #1 \right]} 
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\of}[1]{{\left( #1 \right)}}
+\def\detla{\delta}
+\def\lamdba{\lambda}
+
+%new mathematical operators
+\DeclareMathOperator{\Lagr}{\mathcal{L}}
+\DeclareMathOperator{\Ham}{\mathcal{H}}
+\DeclareMathOperator*{\argmin}{\operatorname{argmin}}
+\DeclareMathOperator*{\argmax}{\operatorname{argmax}}
+\DeclareMathOperator{\E}{\mathbb{E}} % expected value
+\DeclareMathOperator{\prob}{\mathbb{{P}}}
+\DeclareMathOperator{\Cov}{\mathrm{Cov}}
+\DeclareMathOperator{\Var}{\mathrm{Var}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+%new environments
+\newcommand{\myvector}[3]{\begin{bmatrix} {#1} \ {#2} \ \vdots \ {#3} \end{bmatrix}}
+
+%visual customization
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\newcommand{\fignotes}[1]{ {\footnotesize   Note: #1 } }
+\newcommand{\figtitle}[1]{ { \footnotesize \textbf{#1}} }
+
+\renewcommand\appendixpagename{\color{titlecol}{Appendices}}
+
+
+\def\a{\alpha}
+\def\b{\beta}
+\def\c{\chi}
+\def\d{\delta}
+\def\D{\Delta}
+\def\uD{\upDelta}
+\def\e{\epsilon}
+\def\f{\phi}
+\def\vf{\varphi}
+\def\F{\Phi}
+\def\g{\gamma}
+\def\G{\Gamma}
+\def\h{\eta}
+\def\k{\kappa}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\m{\mu}
+\def\n{\nu}
+\def\o{\omega}
+\def\O{\Omega}
+\def\vp{\varpi}
+\def\p{\psi}
+\def\r{\rho}
+\def\s{\sigma}
+\def\vs{\varsigma}
+\def\S{\Sigma}
+\def\t{\theta}
+\def\T{\Theta}
+\def\vt{\vartheta}
+\def\U{\Upsilon}
+\def\x{\xi}
+\def\X{\Xi}
+\def\z{\zeta}
